@@ -1,0 +1,22 @@
+[
+  {
+    "title": "Project 1",
+    "deployedVersion": "https://example.com/project1",
+    "githubRepository": "https://github.com/example/project1"
+  },
+  {
+    "title": "Project 2",
+    "deployedVersion": "https://example.com/project2",
+    "githubRepository": "https://github.com/example/project2"
+  },
+  {
+    "title": "Project 3",
+    "deployedVersion": "https://example.com/project3",
+    "githubRepository": "https://github.com/example/project3"
+  },
+  {
+    "title": "Project 4",
+    "deployedVersion": "https://example.com/project4",
+    "githubRepository": "https://github.com/example/project4"
+  }
+]
