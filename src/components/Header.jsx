@@ -1,18 +1,20 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
+import {AppBar, Toolbar, Typography, Button} from '@mui/material';
 
-function Header() {
+const Header = () => {
     return (
-        <header>
-            <nav>
-                <ul>
-                    <li><Link to="/">Home</Link></li>
-                    <li><Link to="/projects">Projects</Link></li>
-                    <li><Link to="/contact">Contact</Link></li>
-                </ul>
-            </nav>
-        </header>
-    )
+        <AppBar position="static">
+            <Toolbar>
+                <Typography variant="h6" component="div" sx={{flexGrow: 1}}>
+                    Portfolio
+                </Typography>
+                <Button component={Link} to="/" color="inherit">Home</Button>
+                <Button component={Link} to="/projects" color="inherit">Projects</Button>
+                <Button component={Link} to="/contact" color="inherit">Contact</Button>
+            </Toolbar>
+        </AppBar>
+    );
 }
 
 export default Header;
