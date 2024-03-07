@@ -1,22 +1,23 @@
 import React from "react";
-import projectsData from "../data/projects.json"; // Import project data from a JSON file
+import projectsData from "../data/projects.json";
+import Project from "./Project";
+import {Container, Grid, Typography} from "@mui/material";
 
 function Projects() {
+    const projects = projectsData.slice(0, 6); // Get the first six projects
+
     return (
-        <div>
-            <h2>Projects</h2>
-            <ul>
-                {/* Render project items dynamically */}
-                {projectsData.map((project, index) => (
-                    <li key={index}>
-                        <h3>{project.title}</h3>
-                        <p>Deployed Version: <a href={project.deployedVersion}>{project.deployedVersion}</a></p>
-                        <p>GitHub Repository: <a href={project.githubRepository}>{project.githubRepository}</a></p>
-                    </li>
+        <Container>
+            <Typography variant="h2" gutterBottom>Projects</Typography>
+            <Grid container spacing={2}>
+                {projects.map((project, index) => (
+                    <Grid item key={index} xs={12} sm={6} md={4}>
+                        <Project {...project} />
+                    </Grid>
                 ))}
-            </ul>
-        </div>
-    )
+            </Grid>
+        </Container>
+    );
 }
 
 export default Projects;
