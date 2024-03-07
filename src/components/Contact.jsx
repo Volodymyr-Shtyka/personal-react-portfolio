@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Typography, Container, Link, TextField, Button} from '@mui/material';
 import {styled} from '@mui/system';
 
@@ -36,6 +36,24 @@ const CVLink = styled(Link)({
 });
 
 function Contact() {
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        message: '',
+    });
+
+    const handleChange = (e) => {
+        setFormData({...formData, [e.target.id]: e.target.value});
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        // Handle form submission here, e.g., send data to backend or perform validation
+        console.log('Form submitted:', formData);
+        // Clear form after submission
+        setFormData({name: '', email: '', message: ''});
+    };
+
     return (
         <RootContainer>
             <Typography variant="h2">Contact Me</Typography>
@@ -58,11 +76,13 @@ function Contact() {
             </Typography>
             <FormContainer>
                 <Typography variant="h3">Send me a message:</Typography>
-                <form>
+                <form onSubmit={handleSubmit}>
                     <FormField
                         id="name"
                         label="Your Name"
                         variant="outlined"
+                        value={formData.name}
+                        onChange={handleChange}
                         required
                     />
                     <FormField
@@ -70,6 +90,8 @@ function Contact() {
                         label="Your Email"
                         variant="outlined"
                         type="email"
+                        value={formData.email}
+                        onChange={handleChange}
                         required
                     />
                     <FormField
@@ -78,6 +100,8 @@ function Contact() {
                         variant="outlined"
                         multiline
                         rows={4}
+                        value={formData.message}
+                        onChange={handleChange}
                         required
                     />
                     <SubmitButton variant="contained" color="primary" type="submit">
