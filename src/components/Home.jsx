@@ -1,7 +1,7 @@
 import React from "react";
 import {Typography, Container} from "@mui/material"; // Import Material-UI components
 import {styled} from "@mui/system"; // Import styled from @mui/system
-import AvatarImage from "../assets/images/avatar.jpeg"; // Import the image
+import AvatarImage from "/assets/images/avatar.jpeg"; // Import the image
 
 const RootContainer = styled(Container)({
     marginTop: "4rem",
